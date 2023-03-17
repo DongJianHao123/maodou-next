@@ -1,0 +1,51 @@
+{
+    "list": [{
+            "host": "cicvedu",
+            "clientId": 476
+        },
+        {
+            "host": "loongsonedu",
+            "clientId": 466
+        },
+        {
+            "host": "rustedu",
+            "clientId": 450
+        },
+        {
+            "host": "harmonyos-edu",
+            "clientId": 479
+        },
+        {
+            "host": "harmonyosedu",
+            "clientId": 479
+        },
+        {
+            "host": "reactedu",
+            "clientId": 478
+        },
+        {
+            "host": "react-edu",
+            "clientId": 478
+        },
+        {
+            "host": "vueedu",
+            "clientId": 483
+        },
+        {
+            "host": "vue-edu",
+            "clientId": 483
+        },
+        {
+            "host": "riscv-edu",
+            "clientId": 481
+        },
+        {
+            "host": "riscvedu",
+            "clientId": 481
+        },
+        {
+            "host": "chatgptedu",
+            "clientId": 480
+        }
+    ]
+}
