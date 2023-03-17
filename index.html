@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 500px;
+            padding: 30px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10%;
+            border: black 1px solid;
+        }
+        
+        .div2 {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .i1 {
+            margin-left: 10px;
+        }
+        
+        .p {
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var oTxt1 = document.getElementById('inp1');
+            var oTxt2 = document.getElementById('inp2');
+            var oTxt3 = document.getElementById('inp3');
+            var oTxt4 = document.getElementById('inp4');
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+
+            //判断是否为整数
+            function isInteger(obj) {
+                return typeof obj === 'number' && obj % 1 === 0
+            }
+            //下一天按钮
+            oBtn1.onclick = function() {
+                    var vDate = new Date();
+                    vDate.setFullYear(oTxt1.value);
+                    vDate.setMonth(oTxt2.value - 1);
+                    vDate.setDate(oTxt3.value);
+                    //开始判断
+                    if (oTxt1.value == "" || oTxt2.value == "" || oTxt3.value == "" || oTxt1.value == null || oTxt2.value == null || oTxt3.value == null) {
+                        alert("请输入完整年月日");
+                    }
+                    //判断输入是否合法
+                    else if (isInteger(Number(oTxt1.value)) == false) {
+                        alert("请在输入框内输入整数");
+                        oTxt1.value = "";
+                    } else if (isInteger(Number(oTxt2.value)) == false) {
+                        alert("请在输入框内输入整数");
+                        oTxt2.value = "";
+                    } else if (isInteger(Number(oTxt3.value)) == false) {
+                        alert("请在输入框内输入整数");
+                        oTxt3.value = "";
+                    } else if (oTxt1.value > 2050 || oTxt1.value < 1920) {
+                        alert("年份要在1920到2050之间 !");
+                    } else if (oTxt2.value < 1 || oTxt2.value > 12) {
+                        alert("月份在一月到十二月之间");
+                    }
+
+                    // 判断各个月份所对应的日期是否正确
+                    // 31天的月份
+                    else if (oTxt2.value == 1 || oTxt2.value == 3 || oTxt2.value == 5 || oTxt2.value == 7 || oTxt2.value == 8 || oTxt2.value == 10 || oTxt2.value == 12) {
+                        if (oTxt3.value < 1 || oTxt3.value > 31) {
+                            alert(oTxt2.value + "月无此日期,日期应在1到31之间");
+                        } else {
+                            nextday();
+                        }
+                    }
+                    //30天的月份
+                    else if (oTxt2.value == 4 || oTxt2.value == 6 || oTxt2.value == 9 || oTxt2.value == 11) {
+                        if (oTxt3.value < 1 || oTxt3.value > 30) {
+                            alert(oTxt2.value + "月无此日期,日期应在1到30之间");
+                        } else {
+                            nextday();
+                        }
+                    }
+                    //2月
+                    else if (oTxt2.value == 2) {
+                        if (oTxt1.value % 4 == 0) {
+                            if (oTxt3.value < 1 || oTxt3.value > 29) {
+                                alert("闰年" + oTxt2.value + "月无此日期,日期应在1到29之间");
+                            } else {
+                                nextday();
+                            }
+                        } else if (oTxt1.value % 4 != 0) {
+                            if (oTxt3.value < 1 || oTxt3.value > 28) {
+                                alert("非闰年" + oTxt2.value + "月无此日期,日期应在1到28之间");
+                            } else {
+                                nextday();
+                            }
+                        }
+                    }
+                    // 判断完毕
+                    //下一天方法
+                    function nextday() {
+                        vDate.setDate(vDate.getDate() + 1);
+                        oTxt1.value = vDate.getFullYear();
+                        oTxt2.value = vDate.getMonth() + 1;
+                        oTxt3.value = vDate.getDate();
+                        oTxt4.value = oTxt1.value + "年" + oTxt2.value + "月" + vDate.getDate() + "日";
+                    }
+                }
+                //重置按钮
+            oBtn2.onclick = function() {
+                oTxt1.value = "";
+                oTxt2.value = "";
+                oTxt3.value = "";
+                oTxt4.value = "";
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="div1">
+        <h2 style="text-align: center; color: red; margin-bottom: 20px;transform: translateY(-20px);">时间查询器</h2>
+        <div class="div2">
+            输入日期：
+            <input type="text" id="inp1" value="" size="5" required /> 年
+            <input class="i1" type="text" id="inp2" value="" size="3" /> 月
+            <input class="i1" type="text" id="inp3" value="" size="3" /> 日
+        </div>
+        <br>
+        <div class="div2">输出日期：
+            <input type="text" id="inp4" value="" size="20" readonly="readonly" />
+            <input class="i1" type="button" id="btn1" value="下一天" onclick="Next()" />
+            <input class="i1" type="button" id="btn2" value="重置" />
+        </div>
+        <div class="div2">
+            <p class="p">年份要在1920到2050之间 !</p>
+        </div>
+    </div>
+</body>
+
+</html>
