@@ -46,6 +46,10 @@
         {
             "host": "chatgptedu",
             "clientId": 480
+        },
+        {
+            "host": "test change",
+            "clientId": 41
         }
     ]
 }
