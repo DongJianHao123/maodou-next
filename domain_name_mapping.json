@@ -50,6 +50,6 @@
         {
             "host": "chatgpt3edu",
             "clientId": 480
-        },
+        }
     ]
 }
