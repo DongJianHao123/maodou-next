@@ -48,12 +48,8 @@
             "clientId": 480
         },
         {
-            "host": "test change",
-            "clientId": 41
+            "host": "chatgpt3edu",
+            "clientId": 480
         },
-        {
-            "host": "test change 2",
-            "clientId": 41
-        }
     ]
 }
