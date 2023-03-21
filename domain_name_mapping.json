@@ -12,6 +12,10 @@
             "clientId": 450
         },
         {
+            "host": "itaiedu",
+            "clientId": 469
+        },
+        {
             "host": "harmonyos-edu",
             "clientId": 479
         },
