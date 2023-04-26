@@ -6,6 +6,10 @@
         {
             "host": "loongsonedu",
             "clientId": 466
+        }, 
+        {
+            "host": "loongsonai",
+            "clientId": 485
         },
         {
             "host": "rustedu",
